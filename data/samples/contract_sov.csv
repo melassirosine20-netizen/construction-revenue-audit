@@ -1,0 +1,6 @@
+project_id,contract_id,line_id,cost_code,description,original_amount,approved_revised_amount,quantity,unit,unit_price,retainage,source_reference
+PRJ-METRO-EL,CON-2025-001,L001,26-0000,Electrical Rough-In - Floors 1-5,450000.00,450000.00,1,LS,450000.00,0.10,SOV-001
+PRJ-METRO-EL,CON-2025-001,L002,26-0500,Lighting Fixtures & Controls,320000.00,335000.00,1,LS,335000.00,0.10,SOV-002
+PRJ-METRO-EL,CON-2025-001,L003,26-2000,Power Distribution & Panels,280000.00,280000.00,1,LS,280000.00,0.10,SOV-003
+PRJ-METRO-EL,CON-2025-001,L004,26-3000,Fire Alarm & Low Voltage,120000.00,125000.00,1,LS,125000.00,0.10,SOV-004
+PRJ-METRO-EL,CON-2025-001,L005,26-9000,General Conditions & Mobilization,80000.00,80000.00,1,LS,80000.00,0.10,SOV-005

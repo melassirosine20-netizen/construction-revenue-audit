@@ -1,0 +1,4 @@
+project_id,rate_id,rate_type,rate_basis,amount,effective_from,effective_to,description
+PRJ-METRO-EL,RT-OT-001,overtime_bill,hourly,127.50,2025-01-01,,Contract overtime sell rate - weekend/after-hours
+PRJ-METRO-EL,RT-LB-001,labor_bill,hourly,85.00,2025-01-01,,Standard electrician bill rate
+PRJ-METRO-EL,RT-LB-002,labor_bill,hourly,110.00,2025-01-01,,Foreman bill rate

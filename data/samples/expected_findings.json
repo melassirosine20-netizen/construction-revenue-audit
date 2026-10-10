@@ -1,0 +1,154 @@
+{
+  "project_id": "PRJ-METRO-EL",
+  "project_name": "Metro Office Tower \u2014 Electrical Fit-Out",
+  "description": "Ground-truth expected findings for synthetic test project. SYNTHETIC DATA ONLY. All findings below are computable from the sample CSVs without inference.",
+  "materiality_threshold_usd": 100,
+  "audit_as_of_date": "2025-08-15",
+  "expected_findings": [
+    {
+      "rule": "RULE_001",
+      "finding_type": "REVENUE_AT_RISK",
+      "financial_direction": "UNDERBILLED",
+      "related_change_order_id": "CO-014",
+      "approved_amount": 24800.0,
+      "billed_amount": 0.0,
+      "amount_signed": 24800.0,
+      "amount_at_risk": 24800.0,
+      "confidence": "HIGH",
+      "must_detect": true,
+      "notes": "Completely unbilled approved CO; as_of_date after grace from approved_date"
+    },
+    {
+      "rule": "RULE_002",
+      "finding_type": "REVENUE_AT_RISK",
+      "financial_direction": "UNDERBILLED",
+      "related_change_order_id": "CO-007",
+      "approved_amount": 24800.0,
+      "billed_amount": 18500.0,
+      "amount_signed": 6300.0,
+      "amount_at_risk": 6300.0,
+      "confidence": "HIGH",
+      "must_detect": true,
+      "notes": "Partially billed approved CO (underbilled)"
+    },
+    {
+      "rule": "RULE_002",
+      "finding_type": "BILLING_MISMATCH",
+      "financial_direction": "OVERBILLED",
+      "related_change_order_id": "CO-019",
+      "approved_amount": 11200.0,
+      "billed_amount": 22400.0,
+      "amount_signed": -11200.0,
+      "amount_at_risk": 11200.0,
+      "confidence": "HIGH",
+      "must_detect": true,
+      "notes": "Overbilling from duplicate invoices; group with RULE_009",
+      "related_rules": [
+        "RULE_009"
+      ]
+    },
+    {
+      "rule": "RULE_003",
+      "finding_type": "REVENUE_AT_RISK",
+      "financial_direction": "UNDERBILLED",
+      "related_ticket_id": "TM-042",
+      "total_amount": 2645.0,
+      "amount_signed": 2645.0,
+      "amount_at_risk": 2645.0,
+      "confidence": "HIGH",
+      "must_detect": true,
+      "notes": "Approved billable T&M (billable_status=billable, billing_expected=true, expected_bill_after=2025-08-01) with no CO and no billing. as_of 2025-08-15 is past expected bill date. Other unlinked tickets are non_billable or unknown and must NOT fire."
+    },
+    {
+      "rule": "RULE_006",
+      "finding_type": "REVENUE_RECONCILIATION",
+      "financial_direction": "DATA_QUALITY",
+      "notes": "original contract $1,250,000 + net approved COs $161,000 = $1,411,000 expected revised; SOV revised total = $1,270,000; discrepancy \u2248 $141,000. Contract-value reconciliation only \u2014 do not compare to billing-to-date.",
+      "amount_at_risk": 141000.0,
+      "confidence": "HIGH",
+      "must_detect": true
+    },
+    {
+      "rule": "RULE_007",
+      "finding_type": "QUANTITY_MISMATCH",
+      "financial_direction": "UNDERBILLED",
+      "related_change_order_id": "CO-003",
+      "approved_quantity": 100,
+      "billed_quantity": 60,
+      "unit": "LF",
+      "approved_unit_price": 86.0,
+      "amount_signed": 3440.0,
+      "amount_at_risk": 3440.0,
+      "confidence": "HIGH",
+      "must_detect": true,
+      "notes": "ChangeOrderLine CO-003 line 1: 100 LF \u00d7 $86 approved; billing 60 LF \u00d7 $86. Computable from change_order_lines.csv + billing.csv."
+    },
+    {
+      "rule": "RULE_008",
+      "finding_type": "RATE_MISMATCH",
+      "financial_direction": "UNDERBILLED",
+      "related_change_order_id": "CO-011",
+      "approved_unit_price": 127.5,
+      "billed_unit_price": 118.75,
+      "billed_quantity": 80,
+      "amount_signed": 700.0,
+      "amount_at_risk": 700.0,
+      "confidence": "HIGH",
+      "must_detect": true,
+      "notes": "CO line / RateTable overtime_bill $127.50 vs billed $118.75 \u00d7 80 HR = $700 underbilling. rate_type explicit."
+    },
+    {
+      "rule": "RULE_009",
+      "finding_type": "DUPLICATE",
+      "financial_direction": "OVERBILLED",
+      "related_change_order_id": "CO-019",
+      "amount_signed": -11200.0,
+      "amount_at_risk": 11200.0,
+      "confidence": "HIGH",
+      "must_detect": true,
+      "notes": "Same CO billed on INV-071 and INV-072. Group with RULE_002 OVERBILLED; dashboard must not double-count $22,400.",
+      "related_rules": [
+        "RULE_002"
+      ]
+    },
+    {
+      "rule": "RULE_010",
+      "finding_type": "EVIDENCE_RISK",
+      "financial_direction": "EVIDENCE_RISK",
+      "related_change_order_id": "CO-022",
+      "amount_at_risk": 4500.0,
+      "confidence": "MEDIUM",
+      "must_detect": true,
+      "notes": "CO-022 is fixed_price; policy does not require T&M ticket. Seeded weakness: approval exists but linkage/documentation is thin \u2014 flag as evidence risk at MEDIUM, not as missing T&M requirement."
+    }
+  ],
+  "must_not_flag": [
+    {
+      "related_change_order_id": "CO-005",
+      "reason": "Legitimate multi-period billing; total billed equals approved ($15,000). Timing difference only."
+    },
+    {
+      "related_change_order_id": "CO-015",
+      "reason": "Approved credit; negative amount is intentional and billed."
+    },
+    {
+      "related_change_order_id": "CO-002",
+      "reason": "Submitted $12,500 \u2192 approved $12,000 is normal customer negotiation (RULE 005 informational only / must not create revenue finding)."
+    },
+    {
+      "note": "All T&M tickets with billable_status=non_billable or billing_expected=false must NOT produce RULE_003 findings (cleanup, safety, inventory, warranty, etc.)."
+    },
+    {
+      "note": "Retainage differences on any line must not create REVENUE_AT_RISK findings by themselves."
+    },
+    {
+      "note": "Unlinked T&M with billable_status=unknown should not auto-fire HIGH confidence RULE_003."
+    }
+  ],
+  "dashboard_totals_expected": {
+    "potential_underbilling": 35285.0,
+    "potential_overbilling": 11200.0,
+    "evidence_dispute_exposure": 4500.0,
+    "notes": "Underbilling = CO-014 24800 + CO-007 6300 + TM-042 2645 + CO-003 qty 3440 + CO-011 rate 700. Overbilling CO-019 counted once (grouped). RULE_006 is DATA_QUALITY not underbilling revenue."
+  }
+}

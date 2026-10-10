@@ -1,0 +1,9 @@
+project_id,change_order_id,line_number,description,cost_code,quantity,unit,approved_unit_price,approved_amount,rate_type,rate_basis
+PRJ-METRO-EL,CO-003,1,Conduit runs Floor 3,26-0000,100,LF,86.00,8600.00,unit_sell,unit
+PRJ-METRO-EL,CO-011,1,OT labor weekend work,26-0000,80,HR,127.50,10200.00,overtime_bill,hourly
+PRJ-METRO-EL,CO-001,1,Additional receptacles Floor 2,26-0000,1,LS,4800.00,4800.00,lump_sum,lump_sum
+PRJ-METRO-EL,CO-002,1,Lobby lighting upgrade,26-0500,1,LS,12000.00,12000.00,lump_sum,lump_sum
+PRJ-METRO-EL,CO-007,1,Emergency power circuit package,26-2000,1,LS,24800.00,24800.00,lump_sum,lump_sum
+PRJ-METRO-EL,CO-014,1,Generator connection package,26-2000,1,LS,24800.00,24800.00,lump_sum,lump_sum
+PRJ-METRO-EL,CO-019,1,After-hours work package,26-9000,1,LS,11200.00,11200.00,lump_sum,lump_sum
+PRJ-METRO-EL,CO-022,1,Misc support fixed price,26-9000,1,LS,4500.00,4500.00,lump_sum,lump_sum

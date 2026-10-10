@@ -1,0 +1,19 @@
+node_modules/
+dist/
+data/uploads/
+*.db
+*.sqlite
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage/
+*.log
+
+# Local databases and uploads (already covered partially)
+data/*.db
+data/**/*.db
+coverage/
+.idea/
+.vscode/
+*.tsbuildinfo

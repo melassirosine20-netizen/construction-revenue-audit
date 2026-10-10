@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://construction-revenue-audit.local/schemas/contract-sov.json",
+  "title": "ContractSOVLine",
+  "type": "object",
+  "required": ["project_id", "contract_id", "line_id", "description", "original_amount"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "contract_id": { "type": "string" },
+    "line_id": { "type": "string" },
+    "cost_code": { "type": ["string", "null"] },
+    "description": { "type": "string" },
+    "original_amount": { "type": "number" },
+    "approved_revised_amount": { "type": ["number", "null"] },
+    "quantity": { "type": ["number", "null"] },
+    "unit": { "type": ["string", "null"] },
+    "unit_price": { "type": ["number", "null"] },
+    "retainage": { "type": ["number", "null"] },
+    "source_reference": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

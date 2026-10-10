@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://construction-revenue-audit.local/schemas/finding.json",
+  "title": "Finding",
+  "type": "object",
+  "required": [
+    "id",
+    "project_id",
+    "finding_type",
+    "financial_direction",
+    "severity",
+    "status",
+    "confidence",
+    "explanation",
+    "calculation"
+  ],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "project_id": { "type": "string" },
+    "audit_run_id": { "type": ["string", "null"] },
+    "finding_type": {
+      "type": "string",
+      "enum": [
+        "REVENUE_AT_RISK",
+        "REVENUE_RECONCILIATION",
+        "BILLING_MISMATCH",
+        "RATE_MISMATCH",
+        "QUANTITY_MISMATCH",
+        "DUPLICATE",
+        "EVIDENCE_RISK",
+        "MISSING_LINK",
+        "DATA_QUALITY"
+      ]
+    },
+    "financial_direction": {
+      "type": "string",
+      "enum": ["UNDERBILLED", "OVERBILLED", "EVIDENCE_RISK", "DATA_QUALITY", "NONE"]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["OPEN", "REVIEWED", "ACCEPTED", "DISMISSED", "RESOLVED"]
+    },
+    "related_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "id"],
+        "properties": {
+          "type": { "type": "string" },
+          "id": { "type": "string" }
+        }
+      }
+    },
+    "related_finding_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "amount_signed": { "type": ["number", "null"] },
+    "amount_at_risk": { "type": ["number", "null"] },
+    "calculation": { "type": "string" },
+    "calculation_json": { "type": "object" },
+    "explanation": { "type": "string" },
+    "confidence": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "reviewed_at": { "type": ["string", "null"], "format": "date-time" },
+    "reviewer_decision": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

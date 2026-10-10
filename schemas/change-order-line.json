@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://construction-revenue-audit.local/schemas/change-order-line.json",
+  "title": "ChangeOrderLine",
+  "type": "object",
+  "required": ["project_id", "change_order_id", "line_number", "approved_amount"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "change_order_id": { "type": "string" },
+    "line_number": { "type": "integer" },
+    "description": { "type": ["string", "null"] },
+    "cost_code": { "type": ["string", "null"] },
+    "quantity": { "type": ["number", "null"] },
+    "unit": { "type": ["string", "null"] },
+    "approved_unit_price": { "type": ["number", "null"] },
+    "approved_amount": { "type": "number" },
+    "rate_type": {
+      "type": "string",
+      "enum": ["labor_bill", "overtime_bill", "material_markup", "equipment_bill", "unit_sell", "lump_sum", "unknown"]
+    },
+    "rate_basis": {
+      "type": "string",
+      "enum": ["hourly", "percentage", "unit", "lump_sum"]
+    }
+  },
+  "additionalProperties": false
+}

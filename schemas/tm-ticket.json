@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://construction-revenue-audit.local/schemas/tm-ticket.json",
+  "title": "TMTicket",
+  "type": "object",
+  "required": ["project_id", "ticket_id", "date", "total_amount"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "ticket_id": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "description": { "type": ["string", "null"] },
+    "worker_or_category": { "type": ["string", "null"] },
+    "labor_hours": { "type": ["number", "null"] },
+    "labor_rate": { "type": ["number", "null"] },
+    "labor_rate_type": {
+      "type": "string",
+      "enum": ["labor_cost", "labor_bill", "overtime_bill", "unknown"]
+    },
+    "labor_amount": { "type": ["number", "null"] },
+    "material_amount": { "type": ["number", "null"] },
+    "equipment_amount": { "type": ["number", "null"] },
+    "total_amount": { "type": "number" },
+    "approval_status": {
+      "type": "string",
+      "enum": ["pending", "approved", "rejected"]
+    },
+    "customer_signature": { "type": ["boolean", "null"] },
+    "billable_status": {
+      "type": "string",
+      "enum": ["billable", "non_billable", "unknown"]
+    },
+    "billing_expected": {
+      "type": "string",
+      "enum": ["true", "false", "unknown"]
+    },
+    "billing_basis": {
+      "type": "string",
+      "enum": ["change_order", "contract", "t_and_m", "unknown"]
+    },
+    "linked_change_order_id": { "type": ["string", "null"] },
+    "expected_bill_after": { "type": ["string", "null"], "format": "date" },
+    "source_reference": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

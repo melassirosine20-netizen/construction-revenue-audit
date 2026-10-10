@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://construction-revenue-audit.local/schemas/change-order.json",
+  "title": "ChangeOrder",
+  "type": "object",
+  "required": ["project_id", "change_order_id", "status", "approved_amount"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "change_order_id": { "type": "string" },
+    "title": { "type": ["string", "null"] },
+    "description": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": ["submitted", "approved", "rejected", "cancelled", "void"]
+    },
+    "change_method": {
+      "type": "string",
+      "enum": ["fixed_price", "t_and_m", "unit_price", "allowance", "unknown"]
+    },
+    "submitted_date": { "type": ["string", "null"], "format": "date" },
+    "approved_date": { "type": ["string", "null"], "format": "date" },
+    "effective_date": { "type": ["string", "null"], "format": "date" },
+    "original_amount": { "type": ["number", "null"] },
+    "approved_amount": { "type": "number" },
+    "customer_reference": { "type": ["string", "null"] },
+    "cost_code": { "type": ["string", "null"] },
+    "expected_bill_after": { "type": ["string", "null"], "format": "date" },
+    "source_reference": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

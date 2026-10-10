@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://construction-revenue-audit.local/schemas/evidence-link.json",
+  "title": "EvidenceLink",
+  "type": "object",
+  "required": ["evidence_id", "entity_type", "entity_id"],
+  "properties": {
+    "evidence_id": { "type": "string" },
+    "entity_type": {
+      "type": "string",
+      "enum": ["tm_ticket", "change_order", "billing_item", "contract_sov"]
+    },
+    "entity_id": { "type": "string" },
+    "relationship": {
+      "type": "string",
+      "enum": ["supports", "approves", "references", "attached_to"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+project_id,evidence_id,date,type,description,related_ticket_id,related_change_order_id,related_billing_id,file_reference,page_reference,confidence
+PRJ-METRO-EL,EV-001,2025-03-20,approval,Signed CO-001 approval,TM-001,CO-001,,docs/co001-approval.pdf,1,high
+PRJ-METRO-EL,EV-002,2025-03-25,approval,Signed CO-002 approval,TM-002,CO-002,,docs/co002-approval.pdf,1,high
+PRJ-METRO-EL,EV-003,2025-04-10,ticket,T&M ticket scan,TM-003,CO-003,,docs/tm003.pdf,1,high
+PRJ-METRO-EL,EV-004,2025-04-18,approval,Signed CO-005 approval,,CO-005,,docs/co005-approval.pdf,1,high
+PRJ-METRO-EL,EV-005,2025-05-12,approval,Signed CO-007 approval,TM-007,CO-007,,docs/co007-approval.pdf,1,high
+PRJ-METRO-EL,EV-006,2025-06-25,approval,Signed CO-014 approval,TM-014,CO-014,,docs/co014-approval.pdf,1,high
+PRJ-METRO-EL,EV-007,2025-07-22,approval,Signed CO-019 approval,TM-019,CO-019,,docs/co019-approval.pdf,1,high
+PRJ-METRO-EL,EV-008,2025-07-25,ticket,T&M ticket for unlinked work,TM-042,,,docs/tm042.pdf,1,high
+PRJ-METRO-EL,EV-009,2025-07-25,signature,Customer signature on TM-042,TM-042,,,docs/tm042-sig.pdf,1,high
+PRJ-METRO-EL,EV-010,2025-08-08,approval,Signed CO-022 approval (no ticket linked),,CO-022,,docs/co022-approval.pdf,1,medium

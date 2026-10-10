@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://construction-revenue-audit.local/schemas/evidence.json",
+  "title": "Evidence",
+  "type": "object",
+  "required": ["evidence_id", "type"],
+  "properties": {
+    "evidence_id": { "type": "string" },
+    "date": { "type": ["string", "null"], "format": "date" },
+    "type": {
+      "type": "string",
+      "enum": ["ticket", "approval", "photo", "email", "signature", "daily_report", "other"]
+    },
+    "description": { "type": ["string", "null"] },
+    "file_reference": { "type": ["string", "null"] },
+    "page_reference": { "type": ["string", "null"] },
+    "timestamp": { "type": ["string", "null"], "format": "date-time" },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    }
+  },
+  "additionalProperties": false
+}
